@@ -15,5 +15,18 @@ balances_2014 <-read.xlsx("C:/Users/USUARIO/Desktop/Proyecto_R/balances_2014.xls
 #Explorar data banco
 str(balances_2014)
 
-datos <- datos %>%
-  mutate(nueva_variable = variable_existente)
+#creación de variables
+Empresas<-c(balances_2014$nombre_cia)
+Status<-c(balances_2014$situacion)
+Tipo_de_empresa<-c(balances_2014$tipo)
+País<-c(balances_2014$pais)
+Provincia<-c(balances_2014$provincia)
+Cantón <-c(balances_2014$canton)
+Ciudad <-c(balances_2014$ciudad)
+Actividad_económica<-c(balances_2014$desc_ciiu4)
+Subactividad<-c(balances_2014$ciiu4_nivel6)
+
+
+
+
+
