@@ -23,10 +23,21 @@ País<-c(balances_2014$pais)
 Provincia<-c(balances_2014$provincia)
 Cantón <-c(balances_2014$canton)
 Ciudad <-c(balances_2014$ciudad)
-Actividad_económica<-c(balances_2014$desc_ciiu4)
+Actividad_económica<-c(balances_2014$ciiu4_nivel1)
 Subactividad<-c(balances_2014$ciiu4_nivel6)
 
+#Liquidez corriente
+T_Activos_corrientes<-c(balances_2014$v345)
+T_pasivos_corrientes<-c(balances_2014$v539)
+
+Liquidez_c<-c(T_Activos_corrientes/T_pasivos_corrientes)
+
+#Endeudamiento del activo = Pasivo / Activo
 
 
 
+
+Endeudamiento patrimonial = Pasivo / Patrimonio
+Endeudamiento del Activo Fijo = Patrimonio / Activo No Corriente
+Apalancamiento = Activo / Patrimonio
 
