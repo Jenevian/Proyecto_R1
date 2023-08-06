@@ -33,11 +33,22 @@ T_pasivos_corrientes<-c(balances_2014$v539)
 Liquidez_c<-c(T_Activos_corrientes/T_pasivos_corrientes)
 
 #Endeudamiento del activo = Pasivo / Activo
+T_Activos_nocorrientes<-c(balances_2014$v498)
+T_pasivos_nocorrientes<-c(balances_2014$v569)
+T_Activos<-c(T_Activos_corrientes + T_Activos_nocorrientes)
+T_pasivos<-c(T_pasivos_corrientes + T_pasivos_nocorrientes)
+
+E_activo<-c(T_pasivos/T_Activos)
 
 
+#Endeudamiento patrimonial = Pasivo / Patrimonio
+T_patrimonio<-c(balances_2014$v698)
+E_patrimonial<-c(T_pasivos/T_patrimonio)
 
 
-Endeudamiento patrimonial = Pasivo / Patrimonio
-Endeudamiento del Activo Fijo = Patrimonio / Activo No Corriente
-Apalancamiento = Activo / Patrimonio
+#Endeudamiento del Activo Fijo = Patrimonio / Activo No Corriente
+E_activofijo<-c(T_patrimonio/T_Activos_nocorrientes)
 
+
+#Apalancamiento = Activo / Patrimonio
+E_apalancamiento<-c(T_Activos/T_patrimonio)
