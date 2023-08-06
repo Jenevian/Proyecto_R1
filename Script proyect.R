@@ -1,5 +1,5 @@
 #Integrantes:
-#Katherine
+#Katherine Del Valle
 #Raquel
 #Geovanna Gonzalez P. 
 
