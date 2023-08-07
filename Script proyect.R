@@ -181,7 +181,7 @@ resumen_canton <- empresas_4 %>%
 #LIQUIDEZ  DE LA EMPRESA
 emp_activa<- empresas_4 %>% filter(Status=="ACTIVA")
 ggplot(emp_activa, aes(x=fecha_const,  y = Liquidez_C, color= Provincia)) +
-  geom_line() +
+  geom_line(color="red") +
   labs(title = "Gráfica comparativo de la Liquidez Corriente por provincia")+
   facet_wrap(~Provincia)+
   theme_grey()+
@@ -190,7 +190,7 @@ ggplot(emp_activa, aes(x=fecha_const,  y = Liquidez_C, color= Provincia)) +
 
 #SOLVENCIA DE LA EMPRESA
 ggplot(emp_activa, aes(x=fecha_const,  y = Apalancamiento, color= Provincia)) +
-  geom_line() +
+  geom_line(color="blue") +
   labs(title = "Gráfico comparativo entre Solvencia y provincia")+
   facet_wrap(~Provincia)+
   theme_grey()+
@@ -200,15 +200,15 @@ ggplot(emp_activa, aes(x=fecha_const,  y = Apalancamiento, color= Provincia)) +
 #GRAFICO DE LIQUIDEZ POR STATUS Y TIPO DE EMPRESA
 #LIQUIDEZ DE LA EMPRESA
 ggplot(emp_activa, aes(x=fecha_const,  y = Liquidez_C, color= TipoEmpresa, group=TipoEmpresa)) +
-  geom_line() +
-  labs(title = "Gráfico comparativo entre Liquidez Corriente y Tipo de Empresa")+
+  geom_line(color="red") +
+  labs(title = "Gráfico comparativo entre Liquidez Corriente y el Tipo de Empresa")+
   facet_wrap(~TipoEmpresa)+
   theme_grey()+
   theme(legend.position = "none")    
 
 #SOLVENCIA DE LA EMPRESA
 ggplot(emp_activa, aes(x=fecha_const,  y = Apalancamiento, color= TipoEmpresa, group=TipoEmpresa)) +
-  geom_line() +
+  geom_line(color="green") +
   labs(title = "Gráfico comparativo entre Liquidez Corriente y Tipo de Empresa")+
   facet_wrap(~TipoEmpresa)+
   theme_grey()+
