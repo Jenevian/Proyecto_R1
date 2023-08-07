@@ -113,7 +113,7 @@ micro_peq_grande
 
 graf_endeudamiento <- ggplot(micro_peq_grande, aes(x = tamanio, y = Promedio_Endeudamiento, fill = tamanio)) +
                       geom_bar(stat = "identity") +
-                      scale_fill_brewer(palette = "Set1") +
+                      scale_fill_brewer(palette = "Set3") +
                       labs(title = "Promedio del Endeudamiento Activo por Tamaño de Empresa",
                       x = "Tamaño de Empresa",
                       y = "Promedio del Endeudamiento Activo") +
@@ -134,7 +134,7 @@ pregunta2
 
 graf_trabajadores <- ggplot(pregunta2, aes(x = TipoEmpresa, y = Promedio_Liquidez, fill = TipoEmpresa)) +
                     geom_bar(stat = "identity") +
-                    scale_fill_brewer(palette = "Set1") +
+                    scale_fill_brewer(palette = "Set3") +
                     labs(title = "Promedio de Liquidez por Tipo de Empresa",
                     x = "Tipo de Empresa",
                     y = "Promedio de Liquidez") +
