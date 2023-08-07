@@ -172,7 +172,7 @@ resumen_actividad <- empresas_4 %>%
   summarise(num_Empresas = n()) %>% view("resumen_actividad")
 
 
-# MOSTRAR EL TOTAL DE EMPRESAS POR ACT ECONOMICA Y CANTÓN
+# MOSTRAR EL TOTAL DE EMPRESAS POR ACT ECONÓMICA Y CANTÓN
 resumen_canton <- empresas_4 %>%
   group_by(Actividad_economica, Canton) %>%
   summarise(num_Empresas = n()) %>% view("resumen_canton")

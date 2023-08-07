@@ -23,6 +23,12 @@ library(ggplot2)
 Las ratios o indicadores financieros son herramientas que cualquier director financiero utiliza para analizar la situación de su empresa. Gracias al análisis de ratios se puede saber si una compañía se ha gestionado bien o mal. Se pueden hacer proyecciones económico-financieras bien fundamentadas para mejorar la toma de decisiones. Y a su vez, se asegura una gestión de inventarios óptima. (Holded, 2021).
 Según indica la Superintendencia de compañías (2009) se describen 4 tipos de indicadores financieros, que son: de liquidez, gestión, solvencia y de rentabilidad. En este proyecto se busca comparar a las empresas por su tamaño en función de los siguientes ratios financieros:
 
+$$Liquidez $$
+
+-Liquidez Corriente
+$$Liquidez_-C=\frac{Activo  Corriente}{Pasivo Corriente}$$
+
+$$Solvencia$$
 - Endeudamiento Activo:
 
 $$Endeudamiento_-A=\frac{Pasivo}{Activo}$$
@@ -32,7 +38,7 @@ $$Endeudamiento_-P=\frac{Pasivo}{Patrimonio}$$
 
 - Endeudamiento del Activo Fijo:
 
-$$EEndeudamiento_-Activo_-F=\frac{Patrimonio}{Activo_No_Corriente}$$
+$$EEndeudamiento_-Activo_-F=\frac{Patrimonio}{Activo NoCorriente}$$
 
 - Apalancamiento:
 
@@ -62,9 +68,80 @@ Formulario <- read_excel("Datos/Formulario 102.xls")
 ```
 
 
+
+Se realizó una transformación de los datos, los campos con datos -Inf y +Inf se convirtieron en N/A y eliminar estos N/A para empezar a resolver las preguntas.
+
+
+```{r echo=TRUE}
+#QUITAR NA DE LOS REGISTROS
+empresas_3 <- empresas_2 %>% drop_na()
+
+
+# Función para imputar outliers
+impute_outliers <- function(dataframe, variables) {
+  for (var in variables) {
+    dataframe[[var]][dataframe[[var]] < quantile(dataframe[[var]], 0.05, na.rm = TRUE)] <- mean(dataframe[[var]], na.rm = TRUE)
+    dataframe[[var]][dataframe[[var]] > quantile(dataframe[[var]], 0.95, na.rm = TRUE)] <- median(dataframe[[var]], na.rm = TRUE)
+  }
+  return(dataframe)
+}
+columnas_a_imputar <- c("Liquidez_C", "Endeudamiento_A","Endeudamiento_P", "Endeudamiento_Activo_F", "Apalancamiento")
+```
+
+
+
 ## Análisis
+
+Crea una tabla resumiendo el número total de empresas por actividad económica y por actividad económica por cada cantón. La tabla simplemente debe aparecer como un data frame o tibble en tu script.
+
+```{r echo=TRUE}
+# MOSTRAR EL TOTAL DE EMPRESAS POR ACT ECONÓMICA Y CANTÓN
+resumen_canton <- empresas_4 %>%
+  group_by(Actividad_economica, Canton) %>%
+  summarise(num_Empresas = n()) %>% view("resumen_canton")
+```
+
+Gráficamente muestra el comparativo de los indicadores financieros de liquidez y solvencia por Status y provincia.
+```{r grafico, echo=TRUE, out.width='75%', fig.align='center'}
+emp_activa<- empresas_4 %>% filter(Status=="ACTIVA")
+ggplot(emp_activa, aes(x=fecha_const,  y = Liquidez_C, color= Provincia)) +
+  geom_line(color="red") +
+  labs(title = "Gráfica comparativo de la Liquidez Corriente por provincia")+
+  facet_wrap(~Provincia)+
+  theme_grey()+
+  theme(legend.position = "none")
+```
+
+Gráficamente muestra el comparativo de los indicadores financieros de liquidez y solvencia por tipo de empresa.
 
 
 
 ## Conclusión
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
