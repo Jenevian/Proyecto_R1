@@ -23,6 +23,24 @@ library(ggplot2)
 Las ratios o indicadores financieros son herramientas que cualquier director financiero utiliza para analizar la situación de su empresa. Gracias al análisis de ratios se puede saber si una compañía se ha gestionado bien o mal. Se pueden hacer proyecciones económico-financieras bien fundamentadas para mejorar la toma de decisiones. Y a su vez, se asegura una gestión de inventarios óptima. (Holded, 2021).
 Según indica la Superintendencia de compañías (2009) se describen 4 tipos de indicadores financieros, que son: de liquidez, gestión, solvencia y de rentabilidad. En este proyecto se busca comparar a las empresas por su tamaño en función de los siguientes ratios financieros:
 
+- Endeudamiento Activo:
+
+$$Endeudamiento_-A=\frac{Pasivo}{Activo}$$
+
+- Endeudamiento Patrimonial:
+$$Endeudamiento_-P=\frac{Pasivo}{Patrimonio}$$
+
+- Endeudamiento del Activo Fijo:
+
+$$EEndeudamiento_-Activo_-F=\frac{Patrimonio}{Activo_No_Corriente}$$
+
+- Apalancamiento:
+
+$$Apalancamiento=\frac{Activo}{Patrimonio}$$
+
+
+
+
 ## Datos
 
 Se obtienen 4 bases con extensión xlsx para obtener la información necesaria para el desarrollo del proyecto, las cuales son:
